@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JiraIAs - Hackaton</title>
+  
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="/image/favicon.ico">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.min.css">
+    
+    <link href="/css/table_ui.css" type="text/css" rel="stylesheet">
+    <link href="/css/jquery-ui-1.8.7.custom.css" type="text/css" rel="stylesheet">
+    <link href="/css/forms.css" type="text/css" rel="stylesheet">
+
+    <link href="/css/reset.css" type="text/css" rel="stylesheet">
+    <link href="/css/ui.css" type="text/css" rel="stylesheet">
+    <link href="/css/general.css" type="text/css" rel="stylesheet">
+    <link href="/css/custom.css" type="text/css" rel="stylesheet">
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.min.js"></script>
+  </head>
+  <body data-host="<%= host %>">
+    <div id="header">
+      <div id="environment" class="testing">
+        <em>Você está no ambiente: Hackaton</em>
+      </div>
+      <!--./environment -->
+
+      <div id="model_callcenter"></div>
+      <!--./divider -->
+
+      <div id="top-menu">
+        <span>IP: <a>172.16.254.251</a></span> &nbsp; &nbsp; &nbsp;
+        <span>Status Telefone: <a href="#">Ativo</a></span>
+        &nbsp;
+        <span id="clock">Horário Servidor: <a>00:00:00</a></span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    
+        <span>Cotação Dólar Hoje: <a href="#" id="consulta_cotacao" title="Pesquisar outras cotações">R$5,241984</a></span> &nbsp; &nbsp; &nbsp;
+    
+        <span>
+          Acesso Autorizado para: <a href="#" title="Visitante">Visitante</a>
+      
+          <span>Grupo: <a href="#" id="consulta_cotacao">Administrador</a></span>
+      
+          &nbsp; &nbsp; Último Acesso: <span id="date">01/01/2023 00:00</span>
+        </span> &nbsp; &nbsp;
+    
+        <a href="#" title="Logout">Sair</a>
+      </div>
+      <!--./top menu -->
+
+      <div id="sitename">
+        <a href="#" class="logo float-left">Painel Administrativo</a>
+      </div>
+      <!--./menu -->
+
+      <ul id="navigation" class="sf-navbar sf-js-enabled">
+        <li>
+          <a href="#" id="1" class="sf-with-ul"> Administração<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
+        </li>
+        
+        <li class="">
+          <a href="#" id="2" class="sf-with-ul">Controle Financeiro<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
+        </li>
+        
+        <li class="">
+          <a href="#" id="3" class="sf-with-ul">Controle Operacional<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
+        </li>
+        
+        <li class="">
+          <a href="#" id="6" class="sf-with-ul">Conteúdo - CMS<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
+        </li>
+        
+        <li class="">
+          <a href="#" id="9" class="sf-with-ul">Controle de Qualidade<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
+        </li>
+        
+        <li class="">
+          <a href="#" id="10" class="sf-with-ul">Operacional Diário<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
+        </li>
+        
+        <li class="">
+          <a href="#" id="11" class="sf-with-ul">RH<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
+        </li>
+        
+        <li class="">
+          <a href="#" id="13" class="sf-with-ul">RCM<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
+        </li>
+        
+        <li class="">
+          <a href="#" id="14" class="sf-with-ul">Agents<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
+        </li>
+        
+        <li class="">
+          <a href="#" id="15" class="sf-with-ul">Marketing<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
+        </li>
+      </ul>
+      <div id="pesquisa">
+        <form action="#" method="post" target="_blank">
+            <div class="divPesquisaRapida">
+                <button class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="submit" role="button">
+                  <span class="ui-button-text">
+                    OK
+                  </span>
+                </button>
+                <input name="idReserva" id="idReserva" value="" class="inputPesquisa field text" placeholder="Código da Reserva" required="">
+            </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="page-wrapper">
+      <div id="main-wrapper">
+        <div id="main-content">
+          <div class="title title-spacing">
+            <h2>Recomendação de Preços</h2>
+            Lista com recomendação de preços sugeridos pelo modelo da IA.
+          </div>
+          <!-- ./page-title -->
+          
+          <div id="tabelaDefault_wrapper" class="dataTables_wrapper" role="grid">
+            <div class="table-content">
+              <div class="fg-toolbar ui-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix">
+                <div id="tabelaDefault_length" class="dataTables_length">
+                  <button id="btn-send-data" class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                    <span class="ui-button-text">Aplicar Alterações</span>
+                  </button>
+                </div>
+                <div class="dataTables_filter" id="tabelaDefault_filter">
+                  <label>Pesquisar: <input type="text" aria-controls="tabelaDefault"></label>
+                </div>
+                <div id="tabelaDefault_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div>
+              </div>
+  
+              <table id="tabelaDefault" class="dataTable" aria-describedby="tabelaDefault_info">
+                <thead>
+                  <tr role="row">
+                    <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="tabelaDefault" rowspan="1" colspan="1" style="width: 80px;">
+                      Locadora
+                    </th>
+                    <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="tabelaDefault" rowspan="1" colspan="1" style="width: 80px;">
+                      País
+                    </th>
+                    <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="tabelaDefault" rowspan="1" colspan="1" style="width: 80px;">
+                      Comissão (%)
+                    </th>
+                    <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="tabelaDefault" rowspan="1" colspan="1" style="width: 80px;">
+                      Operação Automática
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="table-content">
+                  <!-- ./table data -->
+                </tbody>
+              </table>
+            </div>
+            <!-- ./table content -->
+            <div id="grafico"></div>
+            <!-- ./chart -->
+          </div>
+          <!-- ./list -->
+        </div>
+        <!-- ./content -->
+      </div>
+      <!-- ./main-wrapper -->
+    </div>
+    <!-- ./page-wrapper -->
+
+    <div class="clearfix"></div>
+
+    <div id="footer"><div id="menu">
+      <a href="#" title="Site.com">www.site.com</a>
+    </div>
+    <!-- /.footer -->
+
+    <script src="/js/main.js" defer></script>
+  </body>
+</html>

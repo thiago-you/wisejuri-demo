@@ -1,0 +1,50 @@
+[
+    {
+        "country": "PT",
+        "current_commission": 21,
+        "id": "1534f8d0-37c0-11ee-9710-787b8acaf692",
+        "is_automatic": true,
+        "rental_company": "Alamo",
+        "suggestion_commission": 20
+    },
+    {
+        "country": "ES",
+        "current_commission": 21,
+        "id": "1534f9c0-37c0-11ee-9710-787b8acaf692",
+        "is_automatic": true,
+        "rental_company": "Alamo",
+        "suggestion_commission": 19
+    },
+    {
+        "country": "PT",
+        "current_commission": 25,
+        "id": "1534fa06-37c0-11ee-9710-787b8acaf692",
+        "is_automatic": true,
+        "rental_company": "Sixt",
+        "suggestion_commission": 22
+    },
+    {
+        "country": "ES",
+        "current_commission": 21,
+        "id": "1534fa2e-37c0-11ee-9710-787b8acaf692",
+        "is_automatic": true,
+        "rental_company": "Sixt",
+        "suggestion_commission": 21
+    },
+    {
+        "country": "PT",
+        "current_commission": 20,
+        "id": "1534fb00-37c0-11ee-9710-787b8acaf692",
+        "is_automatic": true,
+        "rental_company": "Europcar",
+        "suggestion_commission": 19
+    },
+    {
+        "country": "ES",
+        "current_commission": 28,
+        "id": "1534fb32-37c0-11ee-9710-787b8acaf692",
+        "is_automatic": true,
+        "rental_company": "Europcar",
+        "suggestion_commission": 25
+    }
+]
