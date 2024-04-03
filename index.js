@@ -49,6 +49,10 @@ app.get("/image/ui-bg_glass_85_dfeffc_1x400.png", (req, res) => {
     return res.sendFile(path.join(__dirname + "/src/assets/image/ui-bg_glass_85_dfeffc_1x400.png"));
 });
 
+app.get("/image/wisejuri-icon.svg", (req, res) => {
+    return res.sendFile(path.join(__dirname + "/src/assets/image/wisejuri-icon.svg"));
+});
+
 app.get("/css/custom.css", (req, res) => {
     return res.sendFile(path.join(__dirname + "/src/assets/style/custom.css"));
 });
@@ -96,6 +100,14 @@ app.get("/rentalcompany/commissions/prevision", (req, res) => {
 
 app.listen(PORT, () => {
     console.log("Server Listening on PORT:", PORT);
+});
+
+app.get("/css/wisejuri-index.css", (req, res) => {
+    return res.sendFile(path.join(__dirname + "/src/assets/style/wisejuri-index.css"));
+});
+
+app.get("/css/wisejuri-index.css", (req, res) => {
+    return res.sendFile(path.join(__dirname + "/src/assets/style/wisejuri-index.css"));
 });
 
 function updatePrevision(data) {

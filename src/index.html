@@ -1,186 +1,167 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>JiraIAs - Hackaton</title>
-  
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="/image/favicon.ico">
+<head>
+  <title>WiseJuri - Demo</title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.min.css">
-    
-    <link href="/css/table_ui.css" type="text/css" rel="stylesheet">
-    <link href="/css/jquery-ui-1.8.7.custom.css" type="text/css" rel="stylesheet">
-    <link href="/css/forms.css" type="text/css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="/css/reset.css" type="text/css" rel="stylesheet">
-    <link href="/css/ui.css" type="text/css" rel="stylesheet">
-    <link href="/css/general.css" type="text/css" rel="stylesheet">
-    <link href="/css/custom.css" type="text/css" rel="stylesheet">
+  <link rel="shortcut icon" href="/image/wisejuri-icon.svg">
 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.min.js"></script>
-  </head>
-  <body data-host="<%= host %>">
-    <div id="header">
-      <div id="environment" class="testing">
-        <em>Você está no ambiente: Hackaton</em>
-      </div>
-      <!--./environment -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.min.css">
 
-      <div id="model_callcenter"></div>
-      <!--./divider -->
+  <link href="/css/table_ui.css" type="text/css" rel="stylesheet">
+  <link href="/css/jquery-ui-1.8.7.custom.css" type="text/css" rel="stylesheet">
+  <link href="/css/forms.css" type="text/css" rel="stylesheet">
 
-      <div id="top-menu">
-        <span>IP: <a>172.16.254.251</a></span> &nbsp; &nbsp; &nbsp;
-        <span>Status Telefone: <a href="#">Ativo</a></span>
-        &nbsp;
-        <span id="clock">Horário Servidor: <a>00:00:00</a></span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-    
-        <span>Cotação Dólar Hoje: <a href="#" id="consulta_cotacao" title="Pesquisar outras cotações">R$5,241984</a></span> &nbsp; &nbsp; &nbsp;
-    
-        <span>
-          Acesso Autorizado para: <a href="#" title="Visitante">Visitante</a>
-      
-          <span>Grupo: <a href="#" id="consulta_cotacao">Administrador</a></span>
-      
-          &nbsp; &nbsp; Último Acesso: <span id="date">01/01/2023 00:00</span>
-        </span> &nbsp; &nbsp;
-    
-        <a href="#" title="Logout">Sair</a>
-      </div>
-      <!--./top menu -->
+  <link href="/css/reset.css" type="text/css" rel="stylesheet">
+  <link href="/css/ui.css" type="text/css" rel="stylesheet">
+  <link href="/css/general.css" type="text/css" rel="stylesheet">
+  <link href="/css/custom.css" type="text/css" rel="stylesheet">
+  <link href="/css/wisejuri-index.css" type="text/css" rel="stylesheet">
 
-      <div id="sitename">
-        <a href="#" class="logo float-left">Painel Administrativo</a>
-      </div>
-      <!--./menu -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.min.js"></script>
 
-      <ul id="navigation" class="sf-navbar sf-js-enabled">
-        <li>
-          <a href="#" id="1" class="sf-with-ul"> Administração<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
-        </li>
-        
-        <li class="">
-          <a href="#" id="2" class="sf-with-ul">Controle Financeiro<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
-        </li>
-        
-        <li class="">
-          <a href="#" id="3" class="sf-with-ul">Controle Operacional<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
-        </li>
-        
-        <li class="">
-          <a href="#" id="6" class="sf-with-ul">Conteúdo - CMS<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
-        </li>
-        
-        <li class="">
-          <a href="#" id="9" class="sf-with-ul">Controle de Qualidade<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
-        </li>
-        
-        <li class="">
-          <a href="#" id="10" class="sf-with-ul">Operacional Diário<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
-        </li>
-        
-        <li class="">
-          <a href="#" id="11" class="sf-with-ul">RH<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
-        </li>
-        
-        <li class="">
-          <a href="#" id="13" class="sf-with-ul">RCM<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
-        </li>
-        
-        <li class="">
-          <a href="#" id="14" class="sf-with-ul">Agents<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
-        </li>
-        
-        <li class="">
-          <a href="#" id="15" class="sf-with-ul">Marketing<span class="ui-icon-carat-1-s ui-icon"> »</span></a>
-        </li>
-      </ul>
-      <div id="pesquisa">
-        <form action="#" method="post" target="_blank">
-            <div class="divPesquisaRapida">
-                <button class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="submit" role="button">
-                  <span class="ui-button-text">
-                    OK
-                  </span>
-                </button>
-                <input name="idReserva" id="idReserva" value="" class="inputPesquisa field text" placeholder="Código da Reserva" required="">
-            </div>
-        </form>
-      </div>
-    </div>
+  <script src="/js/wisejuri-index.js"></script>
+</head>
 
-    <div id="page-wrapper">
-      <div id="main-wrapper">
-        <div id="main-content">
-          <div class="title title-spacing">
-            <h2>Recomendação de Preços</h2>
-            Lista com recomendação de preços sugeridos pelo modelo da IA.
-          </div>
-          <!-- ./page-title -->
-          
-          <div id="tabelaDefault_wrapper" class="dataTables_wrapper" role="grid">
-            <div class="table-content">
-              <div class="fg-toolbar ui-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix">
-                <div id="tabelaDefault_length" class="dataTables_length">
-                  <button id="btn-send-data" class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
-                    <span class="ui-button-text">Aplicar Alterações</span>
-                  </button>
-                </div>
-                <div class="dataTables_filter" id="tabelaDefault_filter">
-                  <label>Pesquisar: <input type="text" aria-controls="tabelaDefault"></label>
-                </div>
-                <div id="tabelaDefault_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div>
+<body data-host="<%= host %>">
+  <div id="root">
+    <div class="w-full flex flex-col">
+      <header class="w-full h-[5.6rem] flex items-center p-2 sm:px-16 gap-16 shadow-sm shadow-gray-200 fixed bg-white">
+        <div><a href="https://wisejuris.netlify.app/" class="cursor-pointer"><img src="/image/wisejuri-icon.svg"
+              class="h-[4rem] w-[4rem]"></a></div>
+      </header>
+      <main class="w-full flex flex-col items-center gap-64">
+        <section class="w-full flex flex-row items-center gap-64">
+        <section class="flex-grow flex items-center flex flex-col">
+          <section class="pt-[160px] max-w-[80rem] flex flex-col gap-8 px-8">
+            <div class="flex items-center w-full max-w-[30rem]"><img class="w-full" src="/image/wisejuri-icon.svg"><span
+                class="text-[5rem] font-sans font-bold text-black">WiseJuris</span></div>
+            <h1 class="font-bold text-[3rem] leading-[4rem]">Otimizando suas práticas jurídicas com base em dados.</h1>
+            <p class="text-secondary-text text-2xl leading-[2.5rem] text-justify">Na
+              Wisejuris, utilizamos o que há de mais avançado em Inteligência
+              Artificial e Empresarial para oferecer conhecimentos aplicáveis e úteis,
+              ajudando os profissionais do direito a aprimorar suas práticas, tomar
+              decisões mais embasadas e alcançar resultados mais expressivos. Nossas
+              ferramentas foram desenvolvidas especialmente para atender às
+              necessidades específicas desse público tão importante.</p>
+          </section>
+          <section class="p-8 flex flex-col lg:flex-row items-center gap-16">
+            <article
+              class="w-full max-w-[35rem] h-full min-h-[35rem] text-center shadow-md shadow-gray-300 border border-solid border-gray-200 rounded-md px-8 py-16 flex flex-col  justify-center gap-8">
+              <header>
+                <h2>Dados prontos para uso.</h2>
+              </header>
+              <section class="flex-grow flex items-center">
+                <p class="text-secondary-text text-2xl leading-[2.5rem]">Com
+                  poucos cliques, você encontrará dados já preparados e prontos para
+                  fornecer resultados atualizados e estatisticamente robustos, permitindo
+                  que você tenha uma visão mais clara do cenário jurídico em que atuam.</p>
+              </section>
+            </article>
+            <article
+              class="w-full max-w-[35rem] h-full min-h-[35rem] text-center shadow-md shadow-gray-300 border border-solid border-gray-200 rounded-md px-8 py-16 flex flex-col gap-8">
+              <header>
+                <h2>Facilidade no uso e leitura dos dados.</h2>
+              </header>
+              <section class="flex-grow flex items-center">
+                <p class="text-secondary-text text-2xl leading-[2.5rem]">Você
+                  poderá usufruir dos nossos serviços sem a necessidade de ser um usuário
+                  avançado. Nossa plataforma é pensada para que os usuários consigam
+                  acessar e interpretar as informações que os interessam com facilidade.</p>
+              </section>
+            </article>
+            <article
+              class="w-full max-w-[35rem] h-full min-h-[35rem] text-center shadow-md shadow-gray-300 border border-solid border-gray-200 rounded-md px-8 py-16 flex flex-col justify-center gap-8">
+              <header>
+                <h2>Desenvolvida por Profissionais.</h2>
+              </header>
+              <section class="flex-grow flex items-center">
+                <p class="text-secondary-text text-2xl leading-[2.5rem]">A
+                  Wisejuris foi desenvolvida em colaboração com profissionais
+                  extremamente talentosos de diversas áreas, incluindo advogados,
+                  pesquisadores e especialistas em tecnologia. Cada recurso foi
+                  cuidadosamente projetado para atender às demandas específicas dos
+                  profissionais do direito.</p>
+              </section>
+            </article>
+          </section>
+          <section class="max-w-[80rem] flex flex-col items-center gap-8 px-8">
+            <h2>Pronto para impulsionar seus resultados?</h2>
+            <p>Com
+              uma abordagem inovadora e resultados comprovados, a Wisejuris está
+              pronta para ajudar você a alcançar todo o seu potencial nas práticas
+              jurídicas.</p><a
+              class="bg-blue hover:bg-blue-hover cursor-pointer p-4 rounded-md text-white text-[2rem] mt-10"
+              style="text-decoration: inherit;" href="https://wisejuris.netlify.app/login">Começe agora</a>
+          </section>
+        </section>
+        <section class="flex-grow flex items-center flex flex-col items-center justify-center p-16 bg-[#1b2075]">
+          <section class="flex flex-col gap-16">
+            <header class="flex flex-col gap-8">
+              <h1 class="text-blue under">Login</h1>
+              <h2 class="text-gray-500">Se você não tem uma conta cadastrada <a
+                  href="https://wisejuris.netlify.app/registro"
+                  class="text-blue font-bold hover:text-bg-hover hover:underline">registre-se aqui.</a></h2>
+            </header>
+            <form class="flex flex-col gap-8"><label class="group">
+                <div class="group-focus-within:font-bold group-focus-within:text-blue"><span>Email</span></div>
+                <div
+                  class="flex gap-4 items-center border-b border-black group-focus-within:border-blue group-focus-within:text-blue">
+                  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em"
+                    width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0 0 68.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z">
+                    </path>
+                  </svg><input type="text" class="cc-auth-input" name="email"></div>
+              </label><label class="group">
+                <div class=" group-focus-within:font-bold group-focus-within:text-blue"><span>Senha</span></div>
+                <div
+                  class="flex gap-4 items-center border-b border-black group-focus-within:border-blue group-focus-within:text-blue">
+                  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em"
+                    width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
+                      d="M336 208v-95a80 80 0 0 0-160 0v95"></path>
+                    <rect width="320" height="272" x="96" y="208" fill="none" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="32" rx="48" ry="48"></rect>
+                  </svg><input type="password" class="cc-auth-input" name="senha"><button type="button"
+                    class="active:outline-none"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                      viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M432 448a15.92 15.92 0 0 1-11.31-4.69l-352-352a16 16 0 0 1 22.62-22.62l352 352A16 16 0 0 1 432 448zm-176.34-64c-41.49 0-81.5-12.28-118.92-36.5-34.07-22-64.74-53.51-88.7-91v-.08c19.94-28.57 41.78-52.73 65.24-72.21a2 2 0 0 0 .14-2.94L93.5 161.38a2 2 0 0 0-2.71-.12c-24.92 21-48.05 46.76-69.08 76.92a31.92 31.92 0 0 0-.64 35.54c26.41 41.33 60.4 76.14 98.28 100.65C162 402 207.9 416 255.66 416a239.13 239.13 0 0 0 75.8-12.58 2 2 0 0 0 .77-3.31l-21.58-21.58a4 4 0 0 0-3.83-1 204.8 204.8 0 0 1-51.16 6.47zm235.18-145.4c-26.46-40.92-60.79-75.68-99.27-100.53C349 110.55 302 96 255.66 96a227.34 227.34 0 0 0-74.89 12.83 2 2 0 0 0-.75 3.31l21.55 21.55a4 4 0 0 0 3.88 1 192.82 192.82 0 0 1 50.21-6.69c40.69 0 80.58 12.43 118.55 37 34.71 22.4 65.74 53.88 89.76 91a.13.13 0 0 1 0 .16 310.72 310.72 0 0 1-64.12 72.73 2 2 0 0 0-.15 2.95l19.9 19.89a2 2 0 0 0 2.7.13 343.49 343.49 0 0 0 68.64-78.48 32.2 32.2 0 0 0-.1-34.78z">
+                      </path>
+                      <path
+                        d="M256 160a95.88 95.88 0 0 0-21.37 2.4 2 2 0 0 0-1 3.38l112.59 112.56a2 2 0 0 0 3.38-1A96 96 0 0 0 256 160zm-90.22 73.66a2 2 0 0 0-3.38 1 96 96 0 0 0 115 115 2 2 0 0 0 1-3.38z">
+                      </path>
+                    </svg></button></div>
+              </label>
+              <div class="h-[4rem] flex items-center justify-center text-red-500"></div>
+              <div><button type="submit"
+                  class="w-full h-16 bg-blue text-white p-4 hover:bg-blue-hover rounded-full flex justify-center">Entrar</button>
               </div>
-  
-              <table id="tabelaDefault" class="dataTable" aria-describedby="tabelaDefault_info">
-                <thead>
-                  <tr role="row">
-                    <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="tabelaDefault" rowspan="1" colspan="1" style="width: 80px;">
-                      Locadora
-                    </th>
-                    <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="tabelaDefault" rowspan="1" colspan="1" style="width: 80px;">
-                      País
-                    </th>
-                    <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="tabelaDefault" rowspan="1" colspan="1" style="width: 80px;">
-                      Comissão (%)
-                    </th>
-                    <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="tabelaDefault" rowspan="1" colspan="1" style="width: 80px;">
-                      Operação Automática
-                    </th>
-                  </tr>
-                </thead>
-                <tbody id="table-content">
-                  <!-- ./table data -->
-                </tbody>
-              </table>
-            </div>
-            <!-- ./table content -->
-            <div id="grafico"></div>
-            <!-- ./chart -->
-          </div>
-          <!-- ./list -->
-        </div>
-        <!-- ./content -->
-      </div>
-      <!-- ./main-wrapper -->
+            </form>
+          </section>
+        </section>
+      </section>
+      <footer class="w-full bg-[#1b2075] text-white flex justify-center py-4">
+        <div>WiseJuris © 2024 Todos os direitos reservados.</div>
+      </footer>
+    </main>
     </div>
-    <!-- ./page-wrapper -->
+  </div>
+  <div id="toasts">
+    <ul></ul>
+  </div>
+  <div id="portal"></div>
 
-    <div class="clearfix"></div>
+  <script src="/js/main.js" defer></script>
+</body>
 
-    <div id="footer"><div id="menu">
-      <a href="#" title="Site.com">www.site.com</a>
-    </div>
-    <!-- /.footer -->
-
-    <script src="/js/main.js" defer></script>
-  </body>
 </html>
