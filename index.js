@@ -25,8 +25,15 @@ if (!host.includes('http')) {
 }
 
 app.get('/', (req, res) => {
-    // res.sendFile(__dirname + '/src/index.html');
     res.render(__dirname + '/src/index.html', { host: host });
+});
+
+app.get('/login', (req, res) => {
+    res.render(__dirname + '/src/login.html', { host: host });
+});
+
+app.get('/dashboard', (req, res) => {
+    res.render(__dirname + '/src/dashboard.html', { host: host });
 });
 
 app.get("/image/favicon.ico", (req, res) => {
@@ -35,6 +42,10 @@ app.get("/image/favicon.ico", (req, res) => {
 
 app.get("/image/header-bg.png", (req, res) => {
     return res.sendFile(path.join(__dirname + "/src/assets/image/header-bg.png"));
+});
+
+app.get("/image/image-1.jpg", (req, res) => {
+    return res.sendFile(path.join(__dirname + "/src/assets/image/image-1.jpg"));
 });
 
 app.get("/image/ui-bg_gloss-wave_55_5c9ccc_500x100.png", (req, res) => {
