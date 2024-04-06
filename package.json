@@ -6,8 +6,7 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "build": "npm-run-all clean --parallel css js sync --sequential build-vendors",
-    "build-vendors": "node build/vendors.mjs",
+    "build": "npm-run-all clean --parallel css js sync --sequential",
     "clean": "rimraf dist",
     "css": "npm-run-all --parallel css-compile* --sequential css-prefix css-minify*",
     "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css --load-path=node_modules/ src/scss/:dist/css/",
