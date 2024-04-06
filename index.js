@@ -12,9 +12,6 @@ app.engine('html', require('ejs').renderFile);
 
 const PORT = 3000;
 
-var data = require('./src/assets/data/dash.json');
-var prevision = require('./src/assets/data/previsao.json');
-
 updatePrevision(data)
 
 // environment external host
@@ -29,7 +26,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-    res.render(__dirname + '/src/login.html', { host: host });
+    res.render('/login.html', { host: host });
 });
 
 app.get('/dashboard', (req, res) => {
