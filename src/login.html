@@ -61,13 +61,13 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: #e74c3c url(/image/image-1.jpg);
+      background: #1f1f1f url(/image/image-1.jpg);
       background-size: cover;
       background-position: 70% 30%;
       opacity: 0.5;
     }
 
-    .backLeft > div {
+    .backLeft>div {
       z-index: 1;
       position: absolute;
       left: 0;
@@ -89,8 +89,9 @@
       overflow: hidden;
       margin-left: 85%;
       position: absolute;
-      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     }
+
     .topLayer {
       width: 200%;
       height: 100%;
@@ -130,28 +131,29 @@
       font-size: 35px;
     }
 
-    button {
+    a.button {
       background-color: #000000 !important;
       padding: 10px 16px;
       width: auto;
       font-weight: 600;
-      text-transform:  uppercase;
+      text-transform: uppercase;
       font-size: 14px;
       color: #fff;
       line-height: 16px;
       letter-spacing: 0.5px;
-      border-radius: 2px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+      border-radius: 9999px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
       border: 0;
       outline: 0;
       margin: 15px 15px 15px 0;
       transition: all 0.25s;
     }
 
-    button:hover {
+    a.button:hover {
       background: #0288D1;
-      box-shadow: 0 4px 7px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
     }
+
     .off {
       background: none;
       color: #03A9F4;
@@ -163,14 +165,17 @@
       color: #03A9F4;
       box-shadow: none;
     }
+
     .left .off:hover {
       box-shadow: none;
       color: #03A9F4;
       background: #363A3D;
     }
+
     h2 {
-      margin-bottom:20px;  
+      margin-bottom: 20px;
     }
+
     input {
       background: transparent;
       border: 0;
@@ -182,7 +187,7 @@
     }
 
     .box-item {
-      background-color: #fff; 
+      background-color: #fff;
     }
 
     header h2 {
@@ -197,7 +202,6 @@
     p .text-black {
       color: #444444;
     }
-
   </style>
 </head>
 
@@ -209,84 +213,92 @@
       <div class="w-full flex flex-col">
         <main class="w-full flex flex-col items-center gap-64">
           <section class="w-full flex flex-row items-center gap-64">
-          <section class="flex-grow flex items-center flex flex-col">
-            <section class="max-w-[80rem] flex flex-col gap-8 px-8" style="padding-top: 100px;">
-              <div class="flex items-center w-full max-w-[30rem]"><img class="w-full" src="/image/wisejuri-icon.svg"><span
-                  class="text-[5rem] font-sans font-bold text-black">WiseJuris</span></div>
-              <h1 class="font-bold text-[3rem] leading-[4rem]">Otimizando suas práticas jurídicas com base em dados.</h1>
-              <p class="text-2xl leading-[2.5rem] text-justify text-black">Na
-                Wisejuris, utilizamos o que há de mais avançado em Inteligência
-                Artificial e Empresarial para oferecer conhecimentos aplicáveis e úteis,
-                ajudando os profissionais do direito a aprimorar suas práticas, tomar
-                decisões mais embasadas e alcançar resultados mais expressivos. Nossas
-                ferramentas foram desenvolvidas especialmente para atender às
-                necessidades específicas desse público tão importante.</p>
-            </section>
-            <section class="p-8 flex flex-col lg:flex-row items-center gap-16">
-              <article
-                class="w-full max-w-[35rem] h-full min-h-[35rem] text-center shadow-md shadow-gray-300 border border-solid border-gray-200 rounded-md px-8 py-16 flex flex-col  justify-center gap-8 box-item">
-                <header>
-                  <h2>Dados prontos para uso.</h2>
-                </header>
-                <section class="flex-grow flex items-center">
-                  <p class="text-black text-2xl leading-[2.5rem]">Com
-                    poucos cliques, você encontrará dados já preparados e prontos para
-                    fornecer resultados atualizados e estatisticamente robustos, permitindo
-                    que você tenha uma visão mais clara do cenário jurídico em que atuam.</p>
-                </section>
-              </article>
-              <article
-                class="w-full max-w-[35rem] h-full min-h-[35rem] text-center shadow-md shadow-gray-300 border border-solid border-gray-200 rounded-md px-8 py-16 flex flex-col gap-8 box-item">
-                <header>
-                  <h2>Facilidade no uso e leitura dos dados.</h2>
-                </header>
-                <section class="flex-grow flex items-center">
-                  <p class="text-black text-2xl leading-[2.5rem]">Você
-                    poderá usufruir dos nossos serviços sem a necessidade de ser um usuário
-                    avançado. Nossa plataforma é pensada para que os usuários consigam
-                    acessar e interpretar as informações que os interessam com facilidade.</p>
-                </section>
-              </article>
-            </section>
-            <section class="max-w-[80rem] flex flex-col items-center gap-8 px-8">
-              <h2>Pronto para impulsionar seus resultados?</h2>
+            <section class="flex-grow flex items-center flex flex-col">
+              <section class="max-w-[80rem] flex flex-col gap-8 px-8" style="padding-top: 100px;">
+                <div class="flex items-center w-full max-w-[30rem]"><img class="w-full"
+                    src="/image/wisejuri-icon.svg"><span
+                    class="text-[5rem] font-sans font-bold text-black">WiseJuris</span></div>
+                <h1 class="font-bold text-[3rem] leading-[4rem]">Otimizando suas práticas jurídicas com base em dados.
+                </h1>
+                <p class="text-2xl leading-[2.5rem] text-justify text-black">Na
+                  Wisejuris, utilizamos o que há de mais avançado em Inteligência
+                  Artificial e Empresarial para oferecer conhecimentos aplicáveis e úteis,
+                  ajudando os profissionais do direito a aprimorar suas práticas, tomar
+                  decisões mais embasadas e alcançar resultados mais expressivos. Nossas
+                  ferramentas foram desenvolvidas especialmente para atender às
+                  necessidades específicas desse público tão importante.</p>
+              </section>
+              <section class="p-8 flex flex-col lg:flex-row items-center gap-16">
+                <article
+                  class="w-full max-w-[35rem] h-full min-h-[35rem] text-center shadow-md shadow-gray-300 border border-solid border-gray-200 rounded-md px-8 py-16 flex flex-col  justify-center gap-8 box-item">
+                  <header>
+                    <h2>Dados prontos para uso.</h2>
+                  </header>
+                  <section class="flex-grow flex items-center">
+                    <p class="text-black text-2xl leading-[2.5rem]">Com
+                      poucos cliques, você encontrará dados já preparados e prontos para
+                      fornecer resultados atualizados e estatisticamente robustos, permitindo
+                      que você tenha uma visão mais clara do cenário jurídico em que atuam.</p>
+                  </section>
+                </article>
+                <article
+                  class="w-full max-w-[35rem] h-full min-h-[35rem] text-center shadow-md shadow-gray-300 border border-solid border-gray-200 rounded-md px-8 py-16 flex flex-col gap-8 box-item">
+                  <header>
+                    <h2>Facilidade no uso e leitura dos dados.</h2>
+                  </header>
+                  <section class="flex-grow flex items-center">
+                    <p class="text-black text-2xl leading-[2.5rem]">Você
+                      poderá usufruir dos nossos serviços sem a necessidade de ser um usuário
+                      avançado. Nossa plataforma é pensada para que os usuários consigam
+                      acessar e interpretar as informações que os interessam com facilidade.</p>
+                  </section>
+                </article>
+              </section>
+              <section class="max-w-[80rem] flex flex-col items-center gap-8 px-8">
+                <h2>Pronto para impulsionar seus resultados?</h2>
+              </section>
             </section>
           </section>
-          </section>
-          </main>
+        </main>
       </div>
     </div>
   </div>
-  
+
   <div id="slideBox">
     <div class="topLayer">
       <div class="left">
-        
+
       </div>
       <div class="right">
         <div class="content">
           <h2>Login</h2>
           <form class="flex flex-col gap-8"><label class="group">
-            <div class="text-white group-focus-within:font-bold group-focus-within:text-white"><span>Email</span></div>
-            <div class="flex gap-4 items-center border-b border-black group-focus-within:border-white group-focus-within:text-white">
-              <input type="text" class="cc-auth-input" name="email">
+              <div class="text-white group-focus-within:font-bold group-focus-within:text-white"><span>Email</span>
+              </div>
+              <div
+                class="flex gap-4 items-center border-b border-black group-focus-within:border-white group-focus-within:text-white">
+                <input type="text" class="cc-auth-input" name="email">
+              </div>
+            </label><label class="group">
+              <div class="text-white group-focus-within:font-bold group-focus-within:text-white"><span>Senha</span>
+              </div>
+              <div
+                class="flex gap-4 items-center border-b border-black group-focus-within:border-white group-focus-within:text-white">
+                <input type="password" class="cc-auth-input" name="senha">
+              </div>
+            </label>
+            <div class="h-[4rem] flex items-center justify-center text-red-500"></div>
+            <div>
+              <a type="button" class="button w-full h-16 text-white text-button p-4 hover:bg-blue-hover rounded-full flex justify-center" href="/dashboard">
+                Entrar
+              </a>
             </div>
-          </label><label class="group">
-            <div class="text-white group-focus-within:font-bold group-focus-within:text-white"><span>Senha</span></div>
-            <div class="flex gap-4 items-center border-b border-black group-focus-within:border-white group-focus-within:text-white">
-              <input type="password" class="cc-auth-input" name="senha">
-            </div>
-          </label>
-          <div class="h-[4rem] flex items-center justify-center text-red-500"></div>
-          <div><button type="submit"
-              class="w-full h-16 text-white text-button p-4 hover:bg-blue-hover rounded-full flex justify-center">Entrar</button>
-          </div>
-        </form>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
+
   <script src="/js/main.js" defer></script>
 </body>
 
