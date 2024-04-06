@@ -48,6 +48,10 @@ app.get("/image/image-1.jpg", (req, res) => {
     return res.sendFile(path.join(__dirname + "/src/assets/image/image-1.jpg"));
 });
 
+app.get("/image/login-form-bg.jpg", (req, res) => {
+    return res.sendFile(path.join(__dirname + "/src/assets/image/login-form-bg.jpg"));
+});
+
 app.get("/image/ui-bg_gloss-wave_55_5c9ccc_500x100.png", (req, res) => {
     return res.sendFile(path.join(__dirname + "/src/assets/image/ui-bg_gloss-wave_55_5c9ccc_500x100.png"));
 });
